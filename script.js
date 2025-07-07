@@ -65,9 +65,9 @@ document.getElementById('loan-form').addEventListener('submit', function(e) {
             });
         }
         resultHTML += '<h3>Årlig summering</h3>';
-        resultHTML += '<table border="1" cellpadding="5"><tr><th>År</th><th>Samlet ydelse</th><th>Samlet afdrag</th><th>Samlet rente</th></tr>';
+        resultHTML += '<table border="1" cellpadding="5"><tr><th>År</th><th>Samlet afdrag</th><th>Samlet rente</th><th>Samlet ydelse</th><th>Restgæld</th></tr>';
         yearlySummary.forEach(row => {
-            resultHTML += `<tr><td>${row.year}</td><td>DKK ${formatDKK(row.totalPayment)}</td><td>DKK ${formatDKK(row.totalPrincipal)}</td><td>DKK ${formatDKK(row.totalInterest)}</td></tr>`;
+            resultHTML += `<tr><td>${row.year}</td><td>DKK ${formatDKK(row.totalPrincipal)}</td><td>DKK ${formatDKK(row.totalInterest)}</td><td>DKK ${formatDKK(row.totalPayment)}</td><td>DKK ${formatDKK(Math.abs(balance2))}</td></tr>`;
         });
         resultHTML += '</table>';
         document.getElementById('results').innerHTML = resultHTML;
